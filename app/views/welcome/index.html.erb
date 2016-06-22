@@ -1,0 +1,38 @@
+<h1>Rails Sample Form</h1>
+
+<h2>form タグを直接記述</h2>
+
+<form action="welcome/form_submit" method="post">
+  <input type="text" name="text_1">
+  <input type="submit" value="送信">
+</form>
+
+<h2>フォームヘルパーを使用</h2>
+
+<%= form_tag("welcome/form_submit", method: "post") do %>
+  <%= text_field_tag("text_1") %>
+  <%= text_field(:object_1, :method_1) %>
+
+  <!-- 文字列とシンボル -->
+  <%= text_field_tag(:text_2) %>
+  <%= text_field("object_2", "method_2") %>
+
+  <%= submit_tag("送信") %>
+<% end %>
+
+<h2>フォームヘルパーを使用 (form_for)</h2>
+
+<%= form_for(@object_3, url: "welcome/form_submit") do |f| %>
+  <%= f.text_field :method_1 %>
+  <%= f.submit("送信") %>
+<% end %>
+
+<h2>参考資料</h2>
+
+<ul>
+  <li><a href="https://www.w3.org/TR/html5/forms.html" target="_blank">HTML5 仕様書 (from)</a>
+  <li><a href="https://validator.w3.org/" target="_blank">W3C Validator</a>
+  <li><a href="http://railsguides.jp/form_helpers.html" target="_blank">RailsGuides (Action View フォームヘルパー)</a>
+  <li><a href="http://qiita.com/shunsuke227ono/items/7accec12eef6d89b0aa9" target="_blank">【Rails】formヘルパーを徹底的に理解する</a>
+</ul>
+

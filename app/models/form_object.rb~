@@ -1,0 +1,5 @@
+class FormObject
+  include ActiveModel::Model
+
+  attr_accessor :name
+end
